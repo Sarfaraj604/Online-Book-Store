@@ -1,18 +1,19 @@
 
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+    const APP_URL = import.meta.env.VITE_API_URL ;
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
 
-    const checkAuth = async () => {
+    const checkAuth = useCallback(async () => {
         try {
-            const res = await axios.get('https://online-book-store-ndje.onrender.com/api/auth/check-auth', {
+            const res = await axios.get(`${APP_URL}/api/auth/check-auth`, {
                 withCredentials: true,
             });
             if (res.data.isAuthenticated) {
@@ -25,11 +26,11 @@ export const AuthProvider = ({ children }) => {
         } finally {
             setLoading(false);
         }
-    };
+    },[APP_URL]);
 
     const logout = async () => {
         try {
-            await axios.post('https://online-book-store-ndje.onrender.com/api/auth/logout', {}, {
+            await axios.post(`${APP_URL}/api/auth/logout`, {}, {
                 withCredentials: true,
             });
             setUser(null);
@@ -41,7 +42,7 @@ export const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         checkAuth();
-    }, []);
+    }, [ checkAuth ]);
 
     return (
         <AuthContext.Provider value={{ user, setUser, logout, loading,checkAuth }}>

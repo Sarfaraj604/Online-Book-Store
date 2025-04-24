@@ -1,11 +1,14 @@
+
 import React, { useState } from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
+
 
 import { useEffect } from "react";
 import { useAuth } from "../context/useAuth";
 
 export default function CheckoutPage() {
+  const APP_URL = import.meta.env.VITE_API_URL ;
   const { user } = useAuth(); // Accessing user data from context
   const [ copies, setCopies ] = useState(1);
   const [showModal, setShowModal] = useState(false);
@@ -16,7 +19,7 @@ export default function CheckoutPage() {
   }, []);
   const handlePayment = async () => {
     console.log("Total Price (in ₹):", totalPrice);
-    const res = await fetch("https://online-book-store-ndje.onrender.com/api/payment/create-order", {
+    const res = await fetch(`${APP_URL}/api/payment/create-order`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -41,7 +44,7 @@ export default function CheckoutPage() {
         console.log(response);
         // Optional: send response to backend to save order
 
-        const verifyRes = await fetch("https://online-book-store-ndje.onrender.com/api/payment/verify", {
+        const verifyRes = await fetch(`${APP_URL}/api/payment/verify`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

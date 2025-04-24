@@ -5,6 +5,7 @@ import { useAuth } from "../context/useAuth";
 import { Link } from "react-router-dom";
 
 function SignupPage() {
+  const APP_URL = import.meta.env.VITE_API_URL ;
   const {user, setUser} = useAuth();
   const [signupData, setSignupData] = useState({
     name: "",
@@ -41,7 +42,7 @@ function SignupPage() {
     }
 
     try {
-      const response = await axiosInstance.post("/api/auth/signup", {
+      const response = await axiosInstance.post(`${APP_URL}/api/auth/signup`, {
         name: signupData.name,
         email: signupData.email,
         password: signupData.password,

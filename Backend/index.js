@@ -1,22 +1,26 @@
 require('dotenv').config();
 const PORT = process.env.PORT || 5000;
 const express = require('express');
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
+
 const { json } = require('body-parser');
 const { connect } = require('mongoose');
 const userRout = require('./routes/user');
 const orderRout = require('./routes/order');
-const cors = require('cors');
-const cookieParser = require('cookie-parser');
+
 const {checkForAuthenticationCookies} = require('./Middleware/authentication.js');
+
 const USERNAME = process.env.db_username;
 const PASSWORD = process.env.db_password;
 const DATABASE = process.env.db_name;
+const APP_URL = process.env.VITE_APP_URL;
 const MONGODB_URI = `mongodb+srv://${USERNAME}:${PASSWORD}@cluster0.bl7ud.mongodb.net/${DATABASE}?retryWrites=true&w=majority&appName=Cluster0`;
 
 const app = express();
 
 app.use(cors({
-  origin: 'https://statuesque-sable-56c95b.netlify.app/login',
+  origin: APP_URL,
   credentials: true
 }));
 app.use(express.json());

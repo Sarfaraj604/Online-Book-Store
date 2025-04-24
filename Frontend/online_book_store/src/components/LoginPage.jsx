@@ -4,6 +4,7 @@ import { useAuth } from '../context/useAuth';
 import axiosInstance from '../utils/axiosConfig';
 
 function LoginPage() {
+  const APP_URL = import.meta.env.VITE_API_URL ;
   const [Loading , setLoading] = useState(false);
   const [loginData, setLoginData] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
@@ -31,7 +32,7 @@ function LoginPage() {
     }
     setLoading(true);
     try {
-      await axiosInstance.post('/api/auth/login', loginData);
+      await axiosInstance.post(`${APP_URL}/api/auth/login`, loginData);
       await checkAuth(); // Wait for auth check to complete
       navigate('/');
     } catch (error) {

@@ -1,7 +1,7 @@
 import axios from 'axios';
-
+const APP_URL = import.meta.env.VITE_API_URL ;
 const axiosInstance = axios.create({
-    baseURL: 'https://online-book-store-ndje.onrender.com',
+    baseURL: `${APP_URL}/api/payment/verify`,
     withCredentials: true,
 });
 
