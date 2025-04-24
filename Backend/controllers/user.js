@@ -21,7 +21,7 @@ async function handleSignup(req, res) {
         await newUser.save();
 
         const token = createTokenForUser(newUser);
-        res.cookie('token', token, { httpOnly: true, path: '/', sameSite: 'Lax', secure: false });
+        res.cookie('token', token, { httpOnly: true, path: '/', sameSite: 'none', secure: true });
         return res.status(201).json({ message: "User created successfully" });
     } catch (error) {
         console.error("Signup error:", error);
@@ -43,7 +43,7 @@ async function handleLogin(req, res) {
         if (!match) return res.status(400).json({ message: "Invalid credentials" });
 
         const token = createTokenForUser(user);
-        res.cookie('token', token, { httpOnly: true, path: '/', sameSite: 'Lax', secure: false
+        res.cookie('token', token, { httpOnly: true, path: '/', sameSite: 'none', secure: true
          });
         return res.status(200).json({ message: "Login successful" });
     } catch (error) {
@@ -57,8 +57,8 @@ async function handleLogout(req, res) {
         res.clearCookie('token', {
             httpOnly: true,
             path: '/',
-            sameSite: 'Lax',
-            secure: false
+            sameSite: 'none',
+            secure: true
         });
         return res.status(200).json({ message: "Logout successful" });
     } catch (error) {

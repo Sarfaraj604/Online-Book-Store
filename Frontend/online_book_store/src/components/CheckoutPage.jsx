@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
+import { useNavigate } from "react-router-dom";
 
 
 import { useEffect } from "react";
@@ -9,6 +10,7 @@ import { useAuth } from "../context/useAuth";
 
 export default function CheckoutPage() {
   const APP_URL = import.meta.env.VITE_API_URL ;
+  const navigate = useNavigate();
   const { user } = useAuth(); // Accessing user data from context
   const [ copies, setCopies ] = useState(1);
   const [showModal, setShowModal] = useState(false);
@@ -62,7 +64,7 @@ export default function CheckoutPage() {
         const verifyData = await verifyRes.json();
         console.log("Verification Response:", verifyData);
         if (verifyData.success) {
-          window.location.href = "/shops";
+          navigate("/shops");
         } else {
           alert("Payment was not verified. Please contact support.");
         }
