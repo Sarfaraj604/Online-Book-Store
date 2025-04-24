@@ -14,7 +14,7 @@ const {checkForAuthenticationCookies} = require('./Middleware/authentication.js'
 const USERNAME = process.env.db_username;
 const PASSWORD = process.env.db_password;
 const DATABASE = process.env.db_name;
-const APP_URL = process.env.VITE_APP_URL;
+const APP_URL = process.env.VITE_API_URL;
 const MONGODB_URI = `mongodb+srv://${USERNAME}:${PASSWORD}@cluster0.bl7ud.mongodb.net/${DATABASE}?retryWrites=true&w=majority&appName=Cluster0`;
 
 const app = express();
