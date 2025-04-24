@@ -64,6 +64,10 @@ export default function CheckoutPage() {
           alert("Payment was not verified. Please contact support.");
         }
       },
+      prefill: {
+        name: user.name,
+        email: user.email,
+      },
       theme: {
         color: "#CC9600"
       }
@@ -143,9 +147,9 @@ export default function CheckoutPage() {
                 <input className="p-2 rounded bg-gray-300 text-black" placeholder="Receiver name" />
                 <input className="p-2 rounded bg-gray-300 text-black" placeholder="Billing Address" />
                 <input className="p-2 rounded bg-gray-300 text-black" placeholder="Sending Address" />
-                <input className="p-2 rounded bg-gray-300 text-black" placeholder="Select Province" />
+                <input className="p-2 rounded bg-gray-300 text-black" placeholder="Select District" />
                 <input className="p-2 rounded bg-gray-300 text-black" placeholder="Contact Number" />
-                <input className="p-2 rounded bg-gray-300 text-black" placeholder="Card Number" />
+                <input className="p-2 rounded bg-gray-300 text-black" placeholder="Select Province" />
               </div>
 
               <div className="flex justify-between items-center mt-6">

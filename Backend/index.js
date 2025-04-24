@@ -8,7 +8,11 @@ const orderRout = require('./routes/order');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const {checkForAuthenticationCookies} = require('./Middleware/authentication.js');
-const MONGODB_URI = process.env.MONGODB_URI;
+const USERNAME = process.env.db_username;
+const PASSWORD = process.env.db_password;
+const DATABASE = process.env.db_name;
+const MONGODB_URI = `mongodb+srv://${USERNAME}:${PASSWORD}@cluster0.bl7ud.mongodb.net/${DATABASE}?retryWrites=true&w=majority&appName=Cluster0`;
+
 const app = express();
 
 app.use(cors({
