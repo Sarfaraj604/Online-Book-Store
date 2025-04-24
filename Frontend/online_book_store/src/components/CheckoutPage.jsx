@@ -16,7 +16,7 @@ export default function CheckoutPage() {
   }, []);
   const handlePayment = async () => {
     console.log("Total Price (in ₹):", totalPrice);
-    const res = await fetch("http://localhost:5000/api/payment/create-order", {
+    const res = await fetch("https://online-book-store-ndje.onrender.com/api/payment/create-order", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -41,7 +41,7 @@ export default function CheckoutPage() {
         console.log(response);
         // Optional: send response to backend to save order
 
-        const verifyRes = await fetch("http://localhost:5000/api/payment/verify", {
+        const verifyRes = await fetch("https://online-book-store-ndje.onrender.com/api/payment/verify", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

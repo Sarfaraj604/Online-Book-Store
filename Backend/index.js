@@ -16,7 +16,7 @@ const MONGODB_URI = `mongodb+srv://${USERNAME}:${PASSWORD}@cluster0.bl7ud.mongod
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'https://statuesque-sable-56c95b.netlify.app/login',
   credentials: true
 }));
 app.use(express.json());

@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
 
     const checkAuth = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/api/auth/check-auth', {
+            const res = await axios.get('https://online-book-store-ndje.onrender.com/api/auth/check-auth', {
                 withCredentials: true,
             });
             if (res.data.isAuthenticated) {
@@ -29,7 +29,7 @@ export const AuthProvider = ({ children }) => {
 
     const logout = async () => {
         try {
-            await axios.post('http://localhost:5000/api/auth/logout', {}, {
+            await axios.post('https://online-book-store-ndje.onrender.com/api/auth/logout', {}, {
                 withCredentials: true,
             });
             setUser(null);
