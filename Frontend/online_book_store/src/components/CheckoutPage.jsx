@@ -10,6 +10,7 @@ import { useAuth } from "../context/useAuth";
 
 export default function CheckoutPage() {
   const APP_URL = import.meta.env.VITE_API_URL ;
+  const [Loading , setLoading] = useState(false);
   const navigate = useNavigate();
   const { user } = useAuth(); // Accessing user data from context
   const [ copies, setCopies ] = useState(1);
@@ -20,6 +21,7 @@ export default function CheckoutPage() {
     window.scrollTo(0, 0);
   }, []);
   const handlePayment = async () => {
+    setLoading(true);
     console.log("Total Price (in ₹):", totalPrice);
     const res = await fetch(`${APP_URL}/api/payment/create-order`, {
       method: "POST",
@@ -63,6 +65,7 @@ export default function CheckoutPage() {
       
         const verifyData = await verifyRes.json();
         console.log("Verification Response:", verifyData);
+        setLoading(false);
         if (verifyData.success) {
           navigate("/shops");
         } else {
@@ -159,9 +162,10 @@ export default function CheckoutPage() {
 
               <div className="flex justify-between items-center mt-6">
                 <button
+                disabled={Loading}
                  onClick={handlePayment}
                  className="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded">
-                  Pay Now
+                  {Loading ? ' Processing...' : 'Pay Now'}
                 </button>
                 <button
                   onClick={() => setShowModal(false)}
