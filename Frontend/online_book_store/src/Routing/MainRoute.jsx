@@ -32,7 +32,8 @@ function MainRoute() {
                 <Route path="/signup" element={<SignupPage />} />
 
                 {/* Protected Routes */}
-                <Route element={<PrivateRoute />}>
+                {/* add this in next line" element={<PrivateRoute />}' */}
+                <Route >
                     <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/shops" element={<Shops />} />
