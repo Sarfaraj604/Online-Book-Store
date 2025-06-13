@@ -153,7 +153,7 @@ function Navbar() {
       : "text-white hover:text-gray-200";
 
   return (
-    <nav className="bg-[url('/navback.png')] bg-cover bg-center w-full p-4">
+    <nav className="bg-[url('/navback.png')] bg-cover bg-center w-full p-4 overflow-x-hidden">
       <div className="container mx-auto flex flex-wrap justify-between items-center">
         {/* Left: Logo */}
         <Link to="/" className="flex items-center gap-3">
@@ -214,7 +214,7 @@ function Navbar() {
               alt="profile"
               className="h-10 w-12 object-contain"
             />
-            <p className="text-white text-sm text-center">{user?.email}</p>
+            <p className="text-white text-sm text-center break-words max-w-[100px]">{user?.email}</p>
           </div>
         </div>
       </div>
