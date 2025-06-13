@@ -3,6 +3,12 @@
 body {
   font-family: "Bona Nova", serif;
 }
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 .bona-nova-regular {
     font-family: "Bona Nova", serif;
     font-weight: 400;

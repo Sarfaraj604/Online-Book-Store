@@ -214,7 +214,7 @@ function Navbar() {
               alt="profile"
               className="h-10 w-12 object-contain"
             />
-            <p className="text-white text-sm text-center break-words max-w-[100px]">{user?.email}</p>
+            <p className="text-white text-sm text-center">{user?.email}</p>
           </div>
         </div>
       </div>
