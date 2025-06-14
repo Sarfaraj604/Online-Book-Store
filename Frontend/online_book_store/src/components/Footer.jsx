@@ -31,7 +31,7 @@ function Footer() {
       </div>
       <hr className="border-t mx-auto border-[#FFFFFF] w-5/6 my-10 pb-10"/>
       <div className='flex flex-col lg:flex-row lg:items-center lg:justify-between text-center lg:text-left gap-6 lg:gap-4 lg:px-10'>
-        <a href="#" className='text-[#ffffff] text-sm md:text-base lg:whitespace-nowrap whitespace-normal'>© 2024 | Neth BookPoint</a>
+        <a href="#" className='text-[#ffffff] text-sm md:text-base lg:whitespace-nowrap whitespace-normal'>© 2025 | Neth BookPoint</a>
         <p className='text-[#CC9600] pl-6 font-normal text-sm md:text-lg flex-1 whitespace-normal lg:whitespace-break-spaces'>
           Visit our branches in Galle, Kurunegala, Kandy, and Colombo, and register for our online platform to enjoy maximum benefits!
         </p>
@@ -40,7 +40,7 @@ function Footer() {
           <img src="./Icon2.png" alt="icon2" className='w-6 h-6'/>
         </div>
       </div>
-      <p className='text-center text-xs text-gray-400 mt-4'>Contact us on @sarfaraj</p>
+      <p className='text-center text-xs text-gray-400 mt-4'>Contact us on @aftab</p>
     </div>
   )
 }
