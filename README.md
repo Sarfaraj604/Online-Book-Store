@@ -6,8 +6,7 @@ An online book store built with the MERN stack that allows users to browse and p
 
 ## 🚀 Live Demo
 
-- 🌐 Frontend: [Netlify Link](https://your-netlify-url.netlify.app)
-- 🌐 Backend: [Render Link](https://your-render-url.onrender.com)
+- 🌐 https://saifbookstore.netlify.app/
 
 ---
 
@@ -27,6 +26,29 @@ An online book store built with the MERN stack that allows users to browse and p
 - JWT (Authentication)
 
 ---
+
+## 🧑‍💻 Project Setup and Usage
+
+**Clone the Repository**
+- git clone https://github.com/Sarfaraj604/Online-Book-Store.git
+- cd online-book-store
+
+**Setup Frontend**
+- cd Frontend/online_book_store
+- npm install
+- npm run dev
+
+**Setup Backend**
+- cd Backend
+- npm install
+- npm start
+
+**Add a .env file in the /server folder with the following variables:**
+-PORT=your server_port
+- MONGO_URI=your_mongodb_connection_string
+- JWT_SECRET=your_jwt_secret
+- RAZORPAY_KEY_ID=your_test_key_id
+- RAZORPAY_KEY_SECRET=your_test_key_secret
 
 ## 🔐 Features
 
@@ -70,11 +92,4 @@ Name: Any name
 *
 
 ---
-
-## 📁 Folder Structure
-
-/client        --> Frontend (React + Tailwind CSS)
-/server        --> Backend (Node.js + Express + MongoDB)
-/README.md     --> Project Overview
-
 
