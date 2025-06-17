@@ -44,7 +44,7 @@ An online book store built with the MERN stack that allows users to browse and p
 - npm start
 
 **Add a .env file in the /server folder with the following variables:**
--PORT=your server_port
+- PORT=your server_port
 - MONGO_URI=your_mongodb_connection_string
 - JWT_SECRET=your_jwt_secret
 - RAZORPAY_KEY_ID=your_test_key_id
